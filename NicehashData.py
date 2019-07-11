@@ -1,10 +1,12 @@
 from forex_python.bitcoin import BtcConverter
 
+
 class NicehashData:
     hashratesuffix = float(0)
     balance = float(0)
     balanceUSD = float(0)
-    def __init__(self, name, hashrate, hashratesuffix,balance):
+
+    def __init__(self, name, hashrate, hashratesuffix, balance):
         b = BtcConverter()
         self.name = name
         self.hashrate = hashrate
@@ -12,8 +14,10 @@ class NicehashData:
         self.balance = balance
         self.balanceUSD = b.get_latest_price('USD') * float(self.balance)
 
+
 class NicehashDataList:
     nicehashdatalist = []
+
     def __init__(self, nicehashdatalist):
         self.nicehashdatalist = nicehashdatalist
 
@@ -35,17 +39,19 @@ class NicehashDataList:
                 hashrate = hashrate * 1000000
             elif nicehashdata.hashratesuffix == "sol":
                 hashrate = hashrate / 1000000
-            hashratetotal = hashratetotal + float(nicehashdata.hashrate)
+            hashratetotal = hashratetotal + float(hashrate)
         return hashratetotal
 
+    @property
     def balancetotal(self):
         balancetotal = 0.00
         for nicehashdata in self.nicehashdatalist:
             balancetotal = balancetotal + float(nicehashdata.balance)
         return balancetotal
 
-    def balanceUSDtotal(self):
-        balanceUSDtotal = 0.00
+    @property
+    def balanceusdtotal(self):
+        balanceusdtotal = 0.00
         for nicehashdata in self.nicehashdatalist:
-            balanceUSDtotal = balanceUSDtotal + float(nicehashdata.balanceUSD)
-        return balanceUSDtotal
+            balanceusdtotal = balanceusdtotal + float(nicehashdata.balanceUSD)
+        return balanceusdtotal
