@@ -21,12 +21,12 @@ I have the issues that come along with that.  The two main issues are:
 2.  I'm using a TP-Link wireless card for now and it will randomly stop working and the only fix is to reboot.
 
 These are problems I don't think I would have on Linux or MacOS but I'm taking the good with the bad.  At any rate,
-I created this Python library to publish my hashrate to MQTT.  I am running Home Assistant so I added hashate as a
+I created this Python library to publish my hashrate to MQTT.  I am running Home Assistant so I added hashrate as a
 sensor and have a Node-Red flow that checks my hashrate every 15 minutes.  If it is enough below the baseline rate to
 signify that at least one GPU is offline (My GPUs do around 32MH/s) then it checks again in 1 minutes then again in 2
 minutes and, if it is still too low, it powers off the smart switch that my mining rig is plugged into, waits 10
 seconds, then powers it back on.  I have the workstation to autologin, restore overclocking values on the GPUs
-and open NiceHash and start mining.  This solution has worked and improved my mining efficiency termendously because
+and open NiceHash and start mining.  This solution has worked and improved my mining efficiency tremendously because
 now when something goes wrong it is fixed within a maximum of 18 minutes.
 
 ## Roadmap
