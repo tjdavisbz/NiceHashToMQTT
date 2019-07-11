@@ -33,21 +33,21 @@ def publishtomqtt():
 
     nicehashdatalist.clear()
 
-    if config.brokerUser != "" and Config.brokerPassword != "":
+    if config.brokerUser != "" and config.brokerPassword != "":
         client.username_pw_set(username=config.brokerUser, password=config.brokerPassword)
 
-    client.connect(config.brokerURL, config.brokerPort, 60)
+    client.connect(config.brokerHost, config.brokerPort, 60)
 
     response = requests.get("https://api.nicehash.com/api?method=stats.provider.ex&addr=" + config.walletaddress)
     nicehashjsondata = json.loads(response.text)
 
     deserializenicehash(nicehashjsondata)
 
-    client.publish(config.brokerTopic + "/hashrate",nicehashdatalist.hashratetotal())
+    client.publish(config.brokerTopic + "/hashrate", nicehashdatalist.hashratetotal())
     sleep(1)
-    client.publish(config.brokerTopic + "/pendingbalance",nicehashdatalist.balancetotal())
+    client.publish(config.brokerTopic + "/pendingbalance", nicehashdatalist.balancetotal())
     sleep(1)
-    client.publish(config.brokerTopic + "/pendingbalanceUSD",nicehashdatalist.balanceusdtotal())
+    client.publish(config.brokerTopic + "/pendingbalanceUSD", nicehashdatalist.balanceusdtotal())
     sleep(1)
     client.publish(config.brokerTopic + "/jsonvalues", "{\"Hashrate\":\"" + str(nicehashdatalist.hashratetotal()) + "\"" + ",\"Pending Balance\":\"" + str(nicehashdatalist.balancetotal()) + "\"" + ",\"Pending Balance USD\":\"" + str(nicehashdatalist.balanceusdtotal()) + "\"}")
     client.loop_stop()

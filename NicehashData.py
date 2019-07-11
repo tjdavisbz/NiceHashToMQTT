@@ -42,14 +42,12 @@ class NicehashDataList:
             hashratetotal = hashratetotal + float(hashrate)
         return hashratetotal
 
-    @property
     def balancetotal(self):
         balancetotal = 0.00
         for nicehashdata in self.nicehashdatalist:
             balancetotal = balancetotal + float(nicehashdata.balance)
         return balancetotal
 
-    @property
     def balanceusdtotal(self):
         balanceusdtotal = 0.00
         for nicehashdata in self.nicehashdatalist:
