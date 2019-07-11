@@ -1,0 +1,2 @@
+forex-python == 1.5
+paho-mqtt == 1.4.0
