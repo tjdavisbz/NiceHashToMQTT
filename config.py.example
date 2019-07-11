@@ -1,7 +1,7 @@
-walletaddress = "[bitcoin_wallet_address]"         #address of your bitcoin wallet
-brokerHost = "[MQTT_broker_IP_or_hostname]"        #ip address or hostname of your MQTT broker
-brokerPort = "1883"                                #port of your MQTT broker
-brokerUser = "[MQTT_username]"                     #username for your MQTT broker, leave blank for anymous
-brokerPassword = "[MQTT_password]"                 #password for your MQTT broker, leave blank for anymous
-brokerTopic = "software/nicehash"                  #root topic to post to.  Sub-topics will be posted for each metric.
-brokerPublishFrequency = 30                        #Seconds    #how often to publish to the broker
+walletaddress = "[bitcoin_wallet_address]"      # address of your Bitcoin wallet
+brokerHost = "[MQTT_broker_IP_or_hostname]"     # ip address or hostname of your MQTT broker
+brokerPort = "1883"                             # port of your MQTT broker
+brokerUser = "[MQTT_username]"                  # username for your MQTT broker, leave blank for anonymous
+brokerPassword = "[MQTT_password]"              # password for your MQTT broker, leave blank for anonymous
+brokerTopic = "software/nicehash"               # root topic to post to.  Sub-topics will be posted for each metric.
+brokerPublishFrequency = 30                     # how often to publish to the broker, in seconds
